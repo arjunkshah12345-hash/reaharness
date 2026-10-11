@@ -369,9 +369,53 @@ html[data-theme="light"] .anatomy{background:var(--surface)}
 
 .pad{padding-inline:28px}
 
-.logos{
-  display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:flex-start;
-  color:var(--ink-3);font:500 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;
+.logos-band__label{
+  margin:0 0 22px;color:var(--ink-3);
+}
+.logo-marquee{
+  position:relative;
+  margin-inline:-28px;
+  padding-inline:0;
+}
+.logo-marquee__viewport{
+  overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.logo-marquee__track{
+  display:flex;align-items:center;gap:40px;
+  width:max-content;
+  margin:0;padding:4px 28px;
+  list-style:none;
+  animation:logo-marquee 42s linear infinite;
+}
+.logo-marquee:hover .logo-marquee__track{animation-play-state:paused}
+.logo-marquee__fade{display:none} /* mask handles edges */
+.logo-item{
+  display:inline-flex;align-items:center;gap:10px;flex:0 0 auto;
+  color:var(--ink-2);
+  font:500 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;
+  white-space:nowrap;
+}
+.logo-item__mark{
+  width:22px;height:22px;object-fit:contain;display:block;flex:0 0 auto;
+}
+/* Mono SVGs ship as currentColor → paint with ink via CSS filter invert on dark */
+.logo-item__mark--mono{
+  filter:brightness(0) invert(.86);
+  opacity:.88;
+}
+html[data-theme="light"] .logo-item__mark--mono{
+  filter:brightness(0) invert(.18);
+  opacity:.8;
+}
+@keyframes logo-marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion: reduce){
+  .logo-marquee__track{animation:none;flex-wrap:wrap;width:auto;row-gap:16px}
+  .logo-marquee__viewport{mask-image:none;-webkit-mask-image:none;overflow:visible}
 }
 
 .chapter-head{
@@ -571,4 +615,6 @@ html[data-theme="light"] .anatomy{background:var(--surface)}
   .band::before,.band::after,.finale::before,.finale::after{display:none}
   .hero,.band,.finale,.footer,.pad{padding-inline:20px}
   .stage__window{margin-inline:12px}
+  .logo-marquee{margin-inline:-20px}
+  .logo-marquee__track{gap:28px;padding-inline:20px;animation-duration:32s}
 }

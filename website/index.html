@@ -138,12 +138,47 @@
         </div>
       </section>
 
-      <section class="band band--tight">
-        <p class="t-label" style="margin-bottom:18px;color:var(--ink-3)">Agents that already speak MCP</p>
-        <div class="logos" data-reveal>
-          <span>Cursor</span><span>Claude Code</span><span>OpenCode</span><span>Goose</span>
-          <span>Codex</span><span>VS Code</span><span>Windsurf</span><span>Gemini CLI</span>
+      <section class="band band--tight logos-band" aria-label="Agents that already speak MCP">
+        <p class="t-label logos-band__label">Agents that already speak MCP</p>
+        <div class="logo-marquee" data-reveal>
+          <div class="logo-marquee__fade logo-marquee__fade--start" aria-hidden="true"></div>
+          <div class="logo-marquee__fade logo-marquee__fade--end" aria-hidden="true"></div>
+          <div class="logo-marquee__viewport">
+            <ul class="logo-marquee__track" data-logo-track>
+              <!-- filled by script: two identical sequences for seamless loop -->
+            </ul>
+          </div>
         </div>
+        <template id="logo-items">
+          <li class="logo-item">
+            <img class="logo-item__mark" src="./assets/logos/cursor.svg" width="22" height="22" alt="" />
+            <span>Cursor</span>
+          </li>
+          <li class="logo-item">
+            <img class="logo-item__mark" src="./assets/logos/claude.svg" width="22" height="22" alt="" />
+            <span>Claude Code</span>
+          </li>
+          <li class="logo-item">
+            <img class="logo-item__mark logo-item__mark--mono" src="./assets/logos/opencode.svg" width="22" height="22" alt="" />
+            <span>OpenCode</span>
+          </li>
+          <li class="logo-item">
+            <img class="logo-item__mark" src="./assets/logos/goose.png" width="22" height="22" alt="" />
+            <span>Goose</span>
+          </li>
+          <li class="logo-item">
+            <img class="logo-item__mark logo-item__mark--mono" src="./assets/logos/codex.svg" width="22" height="22" alt="" />
+            <span>Codex</span>
+          </li>
+          <li class="logo-item">
+            <img class="logo-item__mark" src="./assets/logos/vscode.svg" width="22" height="22" alt="" />
+            <span>VS Code</span>
+          </li>
+          <li class="logo-item">
+            <img class="logo-item__mark" src="./assets/logos/windsurf.svg" width="22" height="22" alt="" />
+            <span>Windsurf</span>
+          </li>
+        </template>
       </section>
 
       <section class="band band--void">
@@ -430,6 +465,21 @@ Setup plan:
     };
 
     syncThemeChrome(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    const logoTrack = document.querySelector('[data-logo-track]');
+    const logoTpl = document.getElementById('logo-items');
+    if (logoTrack && logoTpl) {
+      const buildSequence = () => {
+        const frag = document.createDocumentFragment();
+        logoTpl.content.querySelectorAll('.logo-item').forEach((item) => {
+          frag.appendChild(item.cloneNode(true));
+        });
+        return frag;
+      };
+      logoTrack.appendChild(buildSequence());
+      logoTrack.appendChild(buildSequence());
+      logoTrack.setAttribute('aria-hidden', 'true');
+    }
 
     document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
       btn.addEventListener('click', () => {
