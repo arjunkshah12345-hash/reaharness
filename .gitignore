@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+.reaharness/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+test-results/
+.turbo/
+*.tsbuildinfo
