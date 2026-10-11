@@ -8,21 +8,33 @@
   <meta property="og:title" content="reaharness" />
   <meta property="og:description" content="A harness to reverse engineer anything." />
   <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("rh-theme");
+        var theme = saved === "light" || saved === "dark" ? saved : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (_) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+      document.documentElement.classList.add("js");
+    })();
+  </script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.min.css" />
   <link rel="stylesheet" href="./assets/tokens.css" />
   <link rel="stylesheet" href="./assets/site.css" />
-  <script>document.documentElement.classList.add('js')</script>
   <!--
     DESIGN SPINE
-    DIRECTION   : Engineered Dark — reverse-engineering agent harness
+    DIRECTION   : Engineered Dark (+ light twin) — reverse-engineering agent harness
     REGISTER    : Confident — product UI crosses mint evidence band
-    AXES        : tinted dark · neo-grotesk · product UI · product stage · calm resolve
+    AXES        : tinted dark|warm paper · neo-grotesk · product UI + anatomy · product stage · calm resolve
     DEFAULT?    : 2/6 → dark ground + product UI hero
     MOTIF       : corner brackets ×5 (mark, stage, figs, panel edge via glow, footer)
     TYPE        : Geist 510 · Geist · Geist Mono
-    SIGNATURES  : layout rails + crosshairs · Resend top-edge glow · product float
+    SIGNATURES  : layout rails + crosshairs · Resend top-edge glow · product float · anatomy instruments
     VOICE       : "A harness to reverse engineer anything." / "See it. Trace it. Keep the proof." / "Clone the repo"
   -->
 </head>
@@ -39,6 +51,9 @@
         <a href="#tools">Tools</a>
         <a href="#providers">Providers</a>
         <a href="#setup">Setup</a>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch color theme">
+          <span class="theme-toggle__label" data-next="Light"></span>
+        </button>
         <a class="btn btn--accent btn--sm nav__cta" href="https://github.com/arjunkshah12345-hash/reaharness">GitHub</a>
       </nav>
     </div>
@@ -209,37 +224,26 @@
           <h2 class="t-h2" data-reveal>Every answer carries proof.</h2>
           <p class="t-body" data-reveal>Observations, unknowns, and budgets travel with the payload.</p>
         </div>
-        <div class="fig-row" data-reveal-group>
-          <article class="fig" data-reveal>
-            <div>
-              <p class="fig__cap">Fig 0.1 · admit</p>
-              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
-            </div>
-            <div>
-              <h3>Bounded workspace</h3>
-              <p>Paths stay inside the root. Commands run with deadlines and output budgets.</p>
-            </div>
-          </article>
-          <article class="fig" data-reveal>
-            <div>
-              <p class="fig__cap">Fig 0.2 · evidence</p>
-              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
-            </div>
-            <div>
-              <h3>Evidence inline</h3>
-              <p>What was seen, what was derived, what is still unknown — same response.</p>
-            </div>
-          </article>
-          <article class="fig" data-reveal>
-            <div>
-              <p class="fig__cap">Fig 0.3 · shared</p>
-              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
-            </div>
-            <div>
-              <h3>CLI = MCP</h3>
-              <p>One tool surface. Script it, or hand it to the agent you already use.</p>
-            </div>
-          </article>
+        <div class="feature">
+          <div class="feature__copy" data-reveal>
+            <p class="eyebrow t-label feature__kicker">Evidence</p>
+            <h3 class="t-h2">The tip only rises on what was seen.</h3>
+            <p class="t-body dim">Between observations the reading drops — unknowns stay open. Same shape on every tool result.</p>
+            <ul class="feature__list">
+              <li>Bounded workspace with path admission</li>
+              <li><code>ok</code> · <code>evidence</code> · <code>unknowns</code> · <code>limits</code></li>
+              <li>One tool surface for CLI and MCP</li>
+            </ul>
+          </div>
+          <div class="anatomy" data-reveal>
+            <iframe
+              class="anatomy__frame"
+              data-fig="evidence-probe"
+              title="Evidence probe instrument"
+              loading="lazy"
+              src="./assets/figures/evidence-probe.html"
+            ></iframe>
+          </div>
         </div>
       </section>
 
@@ -276,24 +280,21 @@ xai          · OpenAI-compat
           <div class="feature__copy" data-reveal>
             <p class="eyebrow t-label feature__kicker">Agent loop</p>
             <h3 class="t-h2">Trace, tool, evidence, repeat.</h3>
-            <p class="t-body dim">The same tools MCP exposes. Bounded turns. Structured results folded back into the transcript.</p>
+            <p class="t-body dim">Index the tool under the gate. Same bits on MCP and CLI — bounded turns, structured results.</p>
             <ul class="feature__list">
               <li>Stop reason when max turns hit</li>
               <li>Session notes under <code>.reaharness/</code></li>
               <li>Layered architecture with a boundary guard</li>
             </ul>
           </div>
-          <div class="panel" data-reveal role="img" aria-label="Agent CLI example">
-            <pre>$ reaharness agent \
-  --provider=anthropic \
-  "How does search work here?"
-
-<span class="hi">provider=anthropic model=claude-sonnet-4</span>
-turn 0: tools fs_list, fs_read
-turn 1: reply
-
-Search is token-index first…
-Unknowns: live ranking weights.</pre>
+          <div class="anatomy" data-reveal>
+            <iframe
+              class="anatomy__frame"
+              data-fig="tool-router"
+              title="Tool router instrument"
+              loading="lazy"
+              src="./assets/figures/tool-router.html"
+            ></iframe>
           </div>
         </div>
 
@@ -400,6 +401,42 @@ Setup plan:
   <script type="module">
     import { autoInit } from './assets/motion.js';
     autoInit();
+
+    const figSrc = (name, theme) =>
+      `./assets/figures/${name}${theme === 'light' ? '-light' : ''}.html`;
+
+    const syncThemeChrome = (theme) => {
+      document.querySelectorAll('iframe[data-fig]').forEach((frame) => {
+        const name = frame.getAttribute('data-fig');
+        if (!name) return;
+        const wanted = `${name}${theme === 'light' ? '-light' : ''}.html`;
+        const cur = frame.getAttribute('src') || '';
+        if (!cur.includes(wanted) || (theme === 'dark' && cur.includes('-light'))) {
+          frame.setAttribute('src', figSrc(name, theme));
+        }
+      });
+      document.querySelectorAll('[data-theme-toggle] .theme-toggle__label').forEach((el) => {
+        el.setAttribute('data-next', theme === 'light' ? 'Dark' : 'Light');
+      });
+      document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+        btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+      });
+    };
+
+    const applyTheme = (theme) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('rh-theme', theme); } catch {}
+      syncThemeChrome(theme);
+    };
+
+    syncThemeChrome(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(cur === 'light' ? 'dark' : 'light');
+      });
+    });
 
     document.querySelectorAll('[data-copy]').forEach((btn) => {
       btn.addEventListener('click', async () => {

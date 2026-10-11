@@ -1,31 +1,16 @@
 /* Design Spine
-   DIRECTION   : Engineered Dark — reverse-engineering agent harness
+   DIRECTION   : Engineered Dark (+ light twin) — reverse-engineering agent harness
    REGISTER    : Confident — product UI crosses a mint evidence band
-   AXES        : tinted dark · neo-grotesk · product UI · product stage · calm resolve
+   AXES        : tinted dark|warm paper · neo-grotesk · product UI + anatomy instruments · product stage · calm resolve
    DEFAULT?    : 2/6 → different by dark ground + product UI (not line drawing)
    MOTIF       : corner brackets — brand mark, stage chrome, fig glyphs, panel corners, footer
    TYPE        : Geist 510 · Geist · Geist Mono
-   PALETTE     : #08090A · #F7F8F8 · accent #5EE4A8 → CTA + ok status only
-   SIGNATURES  : layout rails + crosshairs · top-edge glow on panels · product float
+   PALETTE     : dark #08090A / light #F4F3EF · accent mint → CTA + ok status only
+   SIGNATURES  : layout rails + crosshairs · top-edge glow on panels · product float · anatomy figures
    VOICE       : "A harness to reverse engineer anything." / "See it. Trace it. Keep the proof."
 */
 
-:root,
-[data-theme="dark"]{
-  --paper: #08090A;
-  --paper-2: #0F1011;
-  --surface: #141516;
-  --ink-rgb: 247 248 248;
-  --ink: rgb(var(--ink-rgb));
-  --ink-2: rgb(var(--ink-rgb) / .7);
-  --ink-3: rgb(var(--ink-rgb) / .54);
-  --ink-4: rgb(var(--ink-rgb) / .38);
-  --hairline: rgb(var(--ink-rgb) / .08);
-  --hairline-2: rgb(var(--ink-rgb) / .14);
-  --accent: #5EE4A8;
-  --accent-ink: #03120B;
-  --focus: var(--accent);
-  --eyebrow-dot: var(--accent);
+html{
   --font-display: "Geist", "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-text: var(--font-display);
   --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
@@ -46,13 +31,55 @@
   --margin: clamp(1.25rem, .5rem + 3vw, 5rem);
   --s-9: clamp(5.5rem, 4rem + 4vw, 8rem);
   --s-10: clamp(7rem, 5rem + 6vw, 12rem);
+}
+
+html[data-theme="dark"],
+[data-theme="dark"]{
+  --paper: #08090A;
+  --paper-2: #0F1011;
+  --surface: #141516;
+  --ink-rgb: 247 248 248;
+  --ink: rgb(var(--ink-rgb));
+  --ink-2: rgb(var(--ink-rgb) / .7);
+  --ink-3: rgb(var(--ink-rgb) / .54);
+  --ink-4: rgb(var(--ink-rgb) / .38);
+  --hairline: rgb(var(--ink-rgb) / .08);
+  --hairline-2: rgb(var(--ink-rgb) / .14);
+  --accent: #5EE4A8;
+  --accent-ink: #03120B;
+  --focus: var(--accent);
+  --eyebrow-dot: var(--accent);
   --float: 0 0 0 1px rgb(0 0 0 / .2), inset 0 0 0 .5px rgb(255 255 255 / .08), 0 2px 32px rgb(0 0 0 / .35);
   --ring: 0 0 0 1px var(--hairline);
+  --stage-band: #0A2A1C;
   color-scheme: dark;
 }
 
-html{color-scheme:dark;background:var(--paper);overflow-x:clip}
+html[data-theme="light"],
+[data-theme="light"]{
+  --paper: #F4F3EF;
+  --paper-2: #EAE8E1;
+  --surface: #FFFEFA;
+  --ink-rgb: 22 22 20;
+  --ink: rgb(var(--ink-rgb));
+  --ink-2: rgb(var(--ink-rgb) / .72);
+  --ink-3: rgb(var(--ink-rgb) / .58);
+  --ink-4: rgb(var(--ink-rgb) / .4);
+  --hairline: rgb(var(--ink-rgb) / .1);
+  --hairline-2: rgb(var(--ink-rgb) / .16);
+  --accent: #0B7A54;
+  --accent-ink: #F4F3EF;
+  --focus: var(--accent);
+  --eyebrow-dot: var(--accent);
+  --float: 0 0 0 1px rgb(0 0 0 / .06), 0 24px 48px -28px rgb(20 20 18 / .28);
+  --ring: 0 0 0 1px var(--hairline);
+  --stage-band: #D7EFE4;
+  color-scheme: light;
+}
+
+html{background:var(--paper);overflow-x:clip}
 body{background:var(--paper);color:var(--ink);letter-spacing:.01em;overflow-x:clip}
+html[data-theme="dark"] body{letter-spacing:.01em}
 ::selection{background:var(--accent);color:var(--accent-ink)}
 
 /* ---------- Motif: corner brackets ---------- */
@@ -114,6 +141,7 @@ body{background:var(--paper);color:var(--ink);letter-spacing:.01em;overflow-x:cl
 .nav{
   position:sticky;top:0;z-index:40;height:var(--nav-h);
   display:flex;align-items:center;
+  background:color-mix(in oklab, var(--paper) 92%, transparent);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   background:rgb(8 9 10 / .82);
   box-shadow:0 1px 0 var(--hairline);
@@ -130,7 +158,7 @@ body{background:var(--paper);color:var(--ink);letter-spacing:.01em;overflow-x:cl
 }
 .brand__mark{
   width:18px;height:18px;position:relative;
-  background:rgb(94 228 168 / .08);
+  background:color-mix(in oklab, var(--accent) 12%, transparent);
 }
 .brand__mark::before,
 .brand__mark::after{
@@ -196,12 +224,35 @@ body{background:var(--paper);color:var(--ink);letter-spacing:.01em;overflow-x:cl
 .evidence-strip{
   display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;
   padding:7px 11px;border-radius:2px;
-  background:rgb(94 228 168 / .07);
-  box-shadow:inset 0 0 0 1px rgb(94 228 168 / .32);
+  background:color-mix(in oklab, var(--accent) 10%, transparent);
+  box-shadow:inset 0 0 0 1px color-mix(in oklab, var(--accent) 36%, transparent);
   font:500 11px/1 var(--font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--accent);
 }
 .evidence-strip span{opacity:.5;color:var(--ink-2)}
 .evidence-strip b{font-weight:500;color:var(--accent)}
+
+/* Theme toggle */
+.theme-toggle{
+  appearance:none;border:0;background:transparent;color:var(--ink-2);
+  cursor:pointer;min-width:44px;min-height:44px;padding:0 8px;
+  font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;
+}
+.theme-toggle:hover{color:var(--ink)}
+.theme-toggle__label::before{content:attr(data-next)}
+
+/* Anatomy instrument embeds */
+.anatomy{
+  margin-top:var(--s-6);
+  border-radius:12px;
+  background:var(--paper-2);
+  box-shadow:var(--ring);
+  overflow:hidden;
+}
+.anatomy__frame{
+  display:block;width:100%;height:min(520px, 72vw);
+  border:0;background:transparent;
+}
+html[data-theme="light"] .anatomy{background:var(--surface)}
 
 /* ---------- Product stage ---------- */
 .stage{
@@ -212,8 +263,9 @@ body{background:var(--paper);color:var(--ink);letter-spacing:.01em;overflow-x:cl
 .stage__band{
   position:absolute;left:0;right:0;top:22%;height:52%;
   background:
-    radial-gradient(90% 70% at 50% 0%, rgb(94 228 168 / .12), transparent 60%);
-  pointer-events:none;
+    radial-gradient(90% 70% at 50% 0%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+    linear-gradient(180deg, transparent, var(--stage-band) 40%, transparent);
+  pointer-events:none;opacity:.85;
 }
 .stage__window{
   position:relative;
@@ -253,7 +305,7 @@ body{background:var(--paper);color:var(--ink);letter-spacing:.01em;overflow-x:cl
   padding:8px 10px;border-radius:6px;font:450 12px/1.3 var(--font-text);color:var(--ink-2);
 }
 .stage__side li.is-live{
-  background:rgb(94 228 168 / .1);color:var(--ink);opacity:1;
+  background:color-mix(in oklab, var(--accent) 12%, transparent);color:var(--ink);opacity:1;
   box-shadow:inset 0 0 0 1px rgb(94 228 168 / .22);
 }
 .stage__main{padding:18px 20px 32px;display:grid;gap:14px}

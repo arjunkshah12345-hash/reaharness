@@ -104,6 +104,15 @@ import {
 } from "reaharness";
 ```
 
+## Website
+
+Marketing site (dark + light, interactive anatomy figures): [reaharness.vercel.app](https://reaharness.vercel.app)
+
+```bash
+npm run figures   # rebuild evidence-probe + tool-router (needs anatomy skill kit)
+npm run site      # serve ./website on :4177
+```
+
 ## Development
 
 ```bash

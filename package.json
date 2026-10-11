@@ -33,7 +33,9 @@
     "lint": "node scripts/architecture-guard.mjs",
     "check": "npm run typecheck && npm run lint && npm run test && npm run build",
     "start": "node bin/reaharness.mjs mcp",
-    "doctor": "node bin/reaharness.mjs doctor"
+    "doctor": "node bin/reaharness.mjs doctor",
+    "figures": "node website/figures/build-all.mjs",
+    "site": "npx --yes serve website -l 4177"
   },
   "keywords": [
     "agents",
