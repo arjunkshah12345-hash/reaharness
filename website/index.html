@@ -16,10 +16,14 @@
   <script>document.documentElement.classList.add('js')</script>
   <!--
     DESIGN SPINE
-    DIRECTION   : Engineered Dark — RE agent harness
-    REGISTER    : Confident — mint evidence strip on product stage
+    DIRECTION   : Engineered Dark — reverse-engineering agent harness
+    REGISTER    : Confident — product UI crosses mint evidence band
+    AXES        : tinted dark · neo-grotesk · product UI · product stage · calm resolve
+    DEFAULT?    : 2/6 → dark ground + product UI hero
+    MOTIF       : corner brackets ×5 (mark, stage, figs, panel edge via glow, footer)
     TYPE        : Geist 510 · Geist · Geist Mono
-    VOICE       : "A harness to reverse engineer anything." / "See it. Trace it. Keep the proof."
+    SIGNATURES  : layout rails + crosshairs · Resend top-edge glow · product float
+    VOICE       : "A harness to reverse engineer anything." / "See it. Trace it. Keep the proof." / "Clone the repo"
   -->
 </head>
 <body>
@@ -40,120 +44,176 @@
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero container">
-      <div class="hero__top">
-        <div data-reveal-group>
-          <div class="hero__meta" data-reveal>
-            <a class="t-label" href="https://github.com/arjunkshah12345-hash/reaharness" style="color:var(--ink-2);text-decoration:none">
-              Open source · MCP + CLI →
-            </a>
-            <p class="t-label" style="color:var(--ink-2)">MIT · v0.2.0</p>
-          </div>
-          <h1 class="t-display" data-reveal data-split="words">A harness to reverse engineer anything.</h1>
-          <p class="hero__sub" data-reveal>
-            See a feature you want. Trace how it works. Keep the evidence.
-            Wire the same tools into Cursor, Claude, OpenCode, or your own agent loop.
-          </p>
-          <div class="hero__actions" data-reveal>
-            <a class="btn btn--accent" href="https://github.com/arjunkshah12345-hash/reaharness">Clone the harness <span class="arr" aria-hidden="true">→</span></a>
-            <a class="btn btn--ghost" href="#install">Install</a>
-          </div>
-          <div class="install" id="install" data-reveal>
-            <code id="install-cmd">npm i -g github:arjunkshah12345-hash/reaharness</code>
-            <button type="button" class="copy-link" data-copy="#install-cmd">Copy</button>
-          </div>
-        </div>
-        <aside class="hero__aside" data-reveal>
-          <div class="evidence-strip" aria-label="Result shape">
-            <b>ok</b><span>·</span>evidence<span>·</span>unknowns
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="stage" aria-label="Product preview">
-      <div class="stage__band" aria-hidden="true"></div>
-      <div class="stage__window fade-b" data-reveal role="img" aria-label="reaharness session investigating an app feature with evidence">
-        <div class="stage__chrome">
-          <div class="stage__dots" aria-hidden="true"><i></i><i></i><i></i></div>
-          <div class="stage__title">reaharness · investigate · Notes.app</div>
-          <div class="evidence-strip"><b>ok</b><span>·</span>3 evidence</div>
-        </div>
-        <div class="stage__body">
-          <aside class="stage__side">
-            <h3>Tools</h3>
-            <ul>
-              <li>fs_list</li>
-              <li class="is-live">fs_read</li>
-              <li>shell_run</li>
-              <li>session_note</li>
-            </ul>
-          </aside>
-          <div class="stage__main">
-            <div class="msg">
-              <div class="msg__who">User</div>
-              <div class="msg__bubble">How does search work in this app? Show me the evidence.</div>
+  <div class="page">
+    <main id="main">
+      <section class="hero">
+        <div class="hero__top">
+          <div data-reveal-group>
+            <div class="hero__meta" data-reveal>
+              <a class="t-label" href="https://github.com/arjunkshah12345-hash/reaharness/releases" style="color:var(--ink-2);text-decoration:none">
+                New: multi-provider agent loop →
+              </a>
+              <p class="t-label" style="color:var(--ink-2)">MIT · v0.2.0</p>
             </div>
-            <div class="thinking"><span class="thinking__dot" aria-hidden="true"></span> Tracing…</div>
-            <div class="tool-card">
-              <div class="tool-card__head">
-                <span>fs_read <span class="dimmer">SearchIndex.swift</span></span>
-                <b>ok</b>
+            <h1 class="t-display" data-reveal data-split="words">A harness to reverse engineer anything.</h1>
+            <p class="hero__sub" data-reveal>
+              See a feature. Trace the mechanism. Keep the evidence —
+              in Cursor, Claude, OpenCode, or your own loop.
+            </p>
+            <div class="hero__actions" data-reveal>
+              <a class="btn btn--accent" href="https://github.com/arjunkshah12345-hash/reaharness">Clone the repo <span class="arr" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="#install">Install</a>
+            </div>
+            <div class="install" id="install" data-reveal>
+              <code id="install-cmd">npm i -g github:arjunkshah12345-hash/reaharness</code>
+              <button type="button" class="copy-link" data-copy="#install-cmd">Copy</button>
+            </div>
+          </div>
+          <aside class="hero__aside" data-reveal>
+            <div class="evidence-strip" aria-label="Result shape">
+              <b>ok</b><span>·</span>evidence<span>·</span>unknowns
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="stage" aria-label="Product preview">
+        <div class="stage__band" aria-hidden="true"></div>
+        <div class="stage__window fade-b brackets brackets--lg" data-reveal role="img" aria-label="reaharness session investigating an app feature with evidence">
+          <div class="stage__chrome">
+            <div class="stage__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="stage__title">reaharness · investigate · Notes.app</div>
+            <div class="evidence-strip"><b>ok</b><span>·</span>3 evidence</div>
+          </div>
+          <div class="stage__body">
+            <aside class="stage__side">
+              <h3>Tools</h3>
+              <ul>
+                <li>fs_list</li>
+                <li class="is-live">fs_read</li>
+                <li>shell_run</li>
+                <li>session_note</li>
+              </ul>
+            </aside>
+            <div class="stage__main">
+              <div class="msg">
+                <div class="msg__who">User</div>
+                <div class="msg__bubble">How does search work in this app? Show me the evidence.</div>
               </div>
-              <pre><span class="key">evidence</span>: [
+              <div class="thinking"><span class="thinking__dot" aria-hidden="true"></span> Tracing…</div>
+              <div class="tool-card">
+                <div class="tool-card__head">
+                  <span>fs_read <span class="dimmer">SearchIndex.swift</span></span>
+                  <b>ok</b>
+                </div>
+                <pre><span class="key">evidence</span>: [
   { kind: <span class="ok">"observation"</span>, source: "fs_read",
     summary: "Query path hits indexed token store" }
 ]
 <span class="key">unknowns</span>: [
   { code: "RUNTIME", message: "Live ranking weights not observed" }
 ]</pre>
-            </div>
-            <div class="msg msg--agent">
-              <div class="msg__who">Agent</div>
-              <div class="msg__bubble">Search is token-index first, then rank. Ranking weights stay unknown without a runtime attach.</div>
+              </div>
+              <div class="msg msg--agent">
+                <div class="msg__who">Agent</div>
+                <div class="msg__bubble">Token-index first, then rank. Ranking weights stay unknown without a runtime attach.</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="band band--tight">
-      <div class="container">
-        <p class="t-label" style="text-align:center;margin-bottom:22px;color:var(--ink-3)">Runs inside the agents you already use</p>
+      <section class="band band--tight">
+        <p class="t-label" style="margin-bottom:18px;color:var(--ink-3)">Agents that already speak MCP</p>
         <div class="logos" data-reveal>
           <span>Cursor</span><span>Claude Code</span><span>OpenCode</span><span>Goose</span>
           <span>Codex</span><span>VS Code</span><span>Windsurf</span><span>Gemini CLI</span>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="band">
-      <div class="container" style="max-width:720px">
-        <p class="eyebrow t-label" data-reveal>Why it exists</p>
-        <h2 class="t-h2" data-reveal style="margin-top:16px">
-          Understanding without the source.
-          <span class="dim">Ask for the mechanism. Get observations, not guesses.</span>
-        </h2>
-        <p class="t-body dim" data-reveal style="margin-top:20px;max-width:52ch">
-          reaharness is the agent layer for reverse engineering work: typed tools,
-          evidence in every result, unknowns called out instead of papered over.
-          MCP for your IDE agent. CLI when you want the loop yourself.
-        </p>
-      </div>
-    </section>
+      <section class="band band--void">
+        <div style="max-width:640px">
+          <p class="eyebrow t-label" data-reveal>Why it exists</p>
+          <h2 class="t-h2" data-reveal style="margin-top:16px">
+            Understanding without the source.
+            <span class="dim"> Ask for the mechanism. Get observations, not guesses.</span>
+          </h2>
+          <p class="t-body dim" data-reveal style="margin-top:22px;max-width:48ch">
+            Typed tools. Evidence in every result. Unknowns left unknown.
+            MCP for your IDE agent — CLI when you want the loop yourself.
+          </p>
+          <table class="spec" data-reveal>
+            <tbody>
+              <tr>
+                <th>Surface</th>
+                <td><strong>MCP stdio</strong> + shared CLI dispatch</td>
+              </tr>
+              <tr>
+                <th>Result shape</th>
+                <td><code>ok</code> · <code>evidence</code> · <code>unknowns</code> · <code>limits</code></td>
+              </tr>
+              <tr>
+                <th>Providers</th>
+                <td>OpenAI-compat + Anthropic Messages</td>
+              </tr>
+              <tr>
+                <th>Setup</th>
+                <td>Plan → approve → backup → write</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <section class="band" id="tools">
-      <div class="container">
+      <section class="band">
+        <div class="chapter-head" data-reveal-group>
+          <h2 class="t-h2" data-reveal>How a session runs.</h2>
+          <p class="t-body" data-reveal>One loop. Clear ownership at every step.</p>
+        </div>
+        <div class="fig-row" data-reveal-group>
+          <article class="fig" data-reveal>
+            <div>
+              <p class="fig__cap">01 · ask</p>
+              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
+            </div>
+            <div>
+              <h3>Name the feature</h3>
+              <p>Point the agent at a binary, an app bundle, or a workspace and ask how it works.</p>
+            </div>
+          </article>
+          <article class="fig" data-reveal>
+            <div>
+              <p class="fig__cap">02 · tool</p>
+              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
+            </div>
+            <div>
+              <h3>Call with budgets</h3>
+              <p>Filesystem, shell, git, and session memory — each with path admission and limits.</p>
+            </div>
+          </article>
+          <article class="fig" data-reveal>
+            <div>
+              <p class="fig__cap">03 · return</p>
+              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
+            </div>
+            <div>
+              <h3>Keep the ledger</h3>
+              <p>Observations stay observations. Unknowns stay unknowns. Then ask the next question.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" id="tools">
         <div class="chapter-head" data-reveal-group>
           <h2 class="t-h2" data-reveal>Every answer carries proof.</h2>
-          <p class="t-body" data-reveal>Observations, unknowns, and budgets travel with the payload. Missing coverage stays unknown.</p>
+          <p class="t-body" data-reveal>Observations, unknowns, and budgets travel with the payload.</p>
         </div>
         <div class="fig-row" data-reveal-group>
           <article class="fig" data-reveal>
             <div>
               <p class="fig__cap">Fig 0.1 · admit</p>
-              <div class="fig__glyph" aria-hidden="true"></div>
+              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
             </div>
             <div>
               <h3>Bounded workspace</h3>
@@ -163,32 +223,30 @@
           <article class="fig" data-reveal>
             <div>
               <p class="fig__cap">Fig 0.2 · evidence</p>
-              <div class="fig__glyph" aria-hidden="true"></div>
+              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
             </div>
             <div>
               <h3>Evidence inline</h3>
-              <p>What was seen, what was derived, what is still unknown — in the same response.</p>
+              <p>What was seen, what was derived, what is still unknown — same response.</p>
             </div>
           </article>
           <article class="fig" data-reveal>
             <div>
               <p class="fig__cap">Fig 0.3 · shared</p>
-              <div class="fig__glyph" aria-hidden="true"></div>
+              <div class="fig__glyph" aria-hidden="true"><span class="fig__glyph-line"></span></div>
             </div>
             <div>
               <h3>CLI = MCP</h3>
-              <p>One tool surface. Script it, or hand it to Cursor, Claude, Goose, OpenCode.</p>
+              <p>One tool surface. Script it, or hand it to the agent you already use.</p>
             </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="band" id="providers">
-      <div class="container">
+      <section class="band" id="providers">
         <div class="chapter-head" data-reveal-group>
           <h2 class="t-h2" data-reveal>Bring your own model.</h2>
-          <p class="t-body" data-reveal>OpenAI-compatible gateways plus Anthropic Messages. No SDK lock-in.</p>
+          <p class="t-body" data-reveal>OpenAI-compatible gateways plus Anthropic Messages.</p>
         </div>
 
         <div class="feature">
@@ -202,7 +260,7 @@
               <li><code>reaharness agent "trace this feature"</code></li>
             </ul>
           </div>
-          <div class="panel" data-reveal role="img" aria-label="Provider list snippet">
+          <div class="panel" data-reveal role="img" aria-label="Provider list">
             <pre>openai       · Chat Completions
 anthropic    · Messages API
 openrouter   · OpenAI-compat
@@ -249,11 +307,9 @@ Unknowns: live ranking weights.</pre>
           <article data-reveal><strong>xAI</strong><span>Grok</span></article>
           <article data-reveal><strong>Custom</strong><span>Any base URL</span></article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="band" id="setup">
-      <div class="container">
+      <section class="band" id="setup">
         <div class="chapter-head" data-reveal-group>
           <h2 class="t-h2" data-reveal>Setup that asks first.</h2>
           <p class="t-body" data-reveal>Plan the files. Approve. Write with backups.</p>
@@ -292,25 +348,24 @@ Setup plan:
 <span class="hi">Re-run with --yes to apply.</span></pre>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="finale container" data-reveal-group>
-      <h2 class="t-display" data-reveal>Start tracing.</h2>
-      <p class="t-body" data-reveal>Clone it, register MCP, or run the agent loop on the provider you already use.</p>
-      <div class="finale__actions" data-reveal>
-        <a class="btn btn--accent" href="https://github.com/arjunkshah12345-hash/reaharness">Open GitHub <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn--ghost" href="https://github.com/arjunkshah12345-hash/reaharness#quick-start">Read the docs</a>
-      </div>
-    </section>
-  </main>
+      <section class="finale" data-reveal-group>
+        <h2 class="t-display" data-reveal>See it. Trace it. Keep the proof.</h2>
+        <p class="t-body" data-reveal>Clone the repo, register MCP, or run the agent loop on the provider you already use.</p>
+        <div class="finale__actions" data-reveal>
+          <a class="btn btn--accent" href="https://github.com/arjunkshah12345-hash/reaharness">Open GitHub <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="https://github.com/arjunkshah12345-hash/reaharness#quick-start">Read the docs</a>
+        </div>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <div class="container">
+    <footer class="footer">
+      <span class="footer__brackets" aria-hidden="true"></span>
       <div class="footer__grid">
         <div class="footer__brand">
           <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span>reaharness</a>
-          <p>A harness to reverse engineer anything — with evidence.</p>
+          <p>Reverse engineer anything — with evidence.</p>
         </div>
         <div>
           <h4>Product</h4>
@@ -337,10 +392,10 @@ Setup plan:
       <div class="footer__bar">
         <div><span class="ok">ok</span> · evidence · unknowns</div>
         <div data-clock="America/Los_Angeles">--:--</div>
-        <div>See it. Trace it. Keep the proof.</div>
+        <div>Built for agents that show their work</div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script type="module">
     import { autoInit } from './assets/motion.js';
