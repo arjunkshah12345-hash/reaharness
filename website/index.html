@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>reaharness — evidence in every tool call</title>
+  <meta name="description" content="Clean multi-provider agent harness. Typed MCP tools, OpenAI and Anthropic loops, idempotent setup for Cursor, OpenCode, Goose, and more." />
+  <meta property="og:title" content="reaharness" />
+  <meta property="og:description" content="Evidence in every tool call. One loop. Many providers." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.min.css" />
+  <link rel="stylesheet" href="./assets/tokens.css" />
+  <link rel="stylesheet" href="./assets/site.css" />
+  <script>document.documentElement.classList.add('js')</script>
+  <!--
+    DESIGN SPINE
+    DIRECTION   : Engineered Dark — developer harness; product UI is the persuasion
+    REGISTER    : Confident — mint evidence strip crossing the product stage
+    AXES        : ground tinted dark · type neo-grotesk · image product UI · composition product stage · motion calm resolve
+    DEFAULT?    : 2/6 → DIFFERENT FROM DEFAULT BY: tinted dark ground, product UI hero (not line drawing)
+    MOTIF       : evidence chip {ok · evidence · unknowns} — hero strip, tool card, fig caps, footer status
+    TYPE        : Geist 510 · Geist · Geist Mono
+    SCALE       : display ~64/1.0/−0.022 · h2 · body 15 · label 11
+    PALETTE     : paper #08090A · ink #F7F8F8 · accent #5EE4A8 → CTA + ok status only
+    GRID        : 12 · 1280 · margin fluid · section ~128
+    HERO        : left statement + install · terminal UI bleeding off bottom
+    IMAGERY     : HTML MCP/agent session with Thinking shimmer + evidence JSON
+    CONVERSION  : GitHub + npm install (nav, hero, finale)
+    MOTION      : expo-out · UI 200ms · reveal 850ms · blur-in
+    SIGNATURES  : product window float · two-tone h2 · FIG captions · top-edge glow
+    VOICE       : "Evidence in every tool call." / "One loop. Many providers." / "Install the harness"
+  -->
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true"></span>
+        reaharness
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#tools">Tools</a>
+        <a href="#providers">Providers</a>
+        <a href="#setup">Setup</a>
+        <a class="btn btn--accent btn--sm nav__cta" href="https://github.com/arjunkshah12345-hash/reaharness">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container">
+      <div class="hero__top">
+        <div data-reveal-group>
+          <div class="hero__meta" data-reveal>
+            <a class="t-label" href="https://github.com/arjunkshah12345-hash/reaharness" style="color:var(--ink-2);text-decoration:none">
+              New: multi-provider agent loop →
+            </a>
+            <p class="t-label" style="color:var(--ink-2)">MIT · v0.2.0</p>
+          </div>
+          <h1 class="t-display" data-reveal data-split="words">Evidence in every tool call.</h1>
+          <p class="hero__sub" data-reveal>
+            A clean open-source agent harness: typed MCP tools, a provider-agnostic loop, and setup that plans before it writes.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--accent" href="https://github.com/arjunkshah12345-hash/reaharness">View on GitHub <span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#install">Install locally</a>
+          </div>
+          <div class="install" id="install" data-reveal>
+            <code id="install-cmd">npm i -g github:arjunkshah12345-hash/reaharness</code>
+            <button type="button" class="copy-link" data-copy="#install-cmd">Copy</button>
+          </div>
+        </div>
+        <aside class="hero__aside" data-reveal>
+          <div class="evidence-strip" aria-label="Result shape">
+            <b>ok</b><span>·</span>evidence<span>·</span>unknowns
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stage" aria-label="Product preview">
+      <div class="stage__band" aria-hidden="true"></div>
+      <div class="stage__window fade-b" data-reveal role="img" aria-label="reaharness agent session showing a tool call with evidence JSON">
+        <div class="stage__chrome">
+          <div class="stage__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="stage__title">reaharness · mcp · workspace/</div>
+          <div class="evidence-strip"><b>ok</b><span>·</span>3 evidence</div>
+        </div>
+        <div class="stage__body">
+          <aside class="stage__side">
+            <h3>Tools</h3>
+            <ul>
+              <li>fs_list</li>
+              <li class="is-live">shell_run</li>
+              <li>git_status</li>
+              <li>session_note</li>
+            </ul>
+          </aside>
+          <div class="stage__main">
+            <div class="msg">
+              <div class="msg__who">User</div>
+              <div class="msg__bubble">List the repo root and say what this project is.</div>
+            </div>
+            <div class="thinking"><span class="thinking__dot" aria-hidden="true"></span> Thinking…</div>
+            <div class="tool-card">
+              <div class="tool-card__head">
+                <span>shell_run <span class="dimmer">cwd=.</span></span>
+                <b>ok</b>
+              </div>
+              <pre><span class="key">evidence</span>: [
+  { kind: <span class="ok">"observation"</span>, source: "fs_list",
+    summary: "Listed 12 entries in ." }
+]
+<span class="key">unknowns</span>: []
+<span class="key">limits</span>: { truncated: false }</pre>
+            </div>
+            <div class="msg msg--agent">
+              <div class="msg__who">Agent</div>
+              <div class="msg__bubble">reaharness — a multi-provider agent harness with evidence-bearing tools.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tight">
+      <div class="container">
+        <p class="t-label" style="text-align:center;margin-bottom:22px;color:var(--ink-3)">Works where your agents already live</p>
+        <div class="logos" data-reveal>
+          <span>Cursor</span><span>Claude Code</span><span>OpenCode</span><span>Goose</span>
+          <span>Codex</span><span>VS Code</span><span>Windsurf</span><span>Gemini CLI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container" style="max-width:720px">
+        <p class="eyebrow t-label" data-reveal>Manifesto</p>
+        <h2 class="t-h2" data-reveal style="margin-top:16px">
+          Agents should show their work.
+          <span class="dim">Observations stay observations. Unknowns stay unknowns. Budgets stay visible.</span>
+        </h2>
+        <p class="t-body dim" data-reveal style="margin-top:20px;max-width:52ch">
+          reaharness is a thin harness, not a framework cult. Typed tools over MCP and CLI.
+          A provider loop that speaks OpenAI-compat and Anthropic. Setup that prints a plan
+          before it touches your config.
+        </p>
+      </div>
+    </section>
+
+    <section class="band" id="tools">
+      <div class="container">
+        <div class="chapter-head" data-reveal-group>
+          <h2 class="t-h2" data-reveal>Tools return proof, <span class="dim">not vibes.</span></h2>
+          <p class="t-body" data-reveal>Every result carries observations, unknowns, and budgets. Missing coverage stays unknown.</p>
+        </div>
+        <div class="fig-row" data-reveal-group>
+          <article class="fig" data-reveal>
+            <div>
+              <p class="fig__cap">Fig 0.1 · admit</p>
+              <div class="fig__glyph" aria-hidden="true"></div>
+            </div>
+            <div>
+              <h3>Workspace-rooted</h3>
+              <p>Paths resolve inside the root or get rejected. Shell runs argv-only with timeouts.</p>
+            </div>
+          </article>
+          <article class="fig" data-reveal>
+            <div>
+              <p class="fig__cap">Fig 0.2 · evidence</p>
+              <div class="fig__glyph" aria-hidden="true"></div>
+            </div>
+            <div>
+              <h3>Evidence inline</h3>
+              <p>Observations, derivations, and limits travel with the payload. No second lookup.</p>
+            </div>
+          </article>
+          <article class="fig" data-reveal>
+            <div>
+              <p class="fig__cap">Fig 0.3 · shared</p>
+              <div class="fig__glyph" aria-hidden="true"></div>
+            </div>
+            <div>
+              <h3>CLI = MCP</h3>
+              <p>One dispatch layer. Script with <code>run</code>, or expose the same tools over stdio.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="providers">
+      <div class="container">
+        <div class="chapter-head" data-reveal-group>
+          <h2 class="t-h2" data-reveal>One loop. <span class="dim">Many providers.</span></h2>
+          <p class="t-body" data-reveal>OpenAI-compatible gateways plus Anthropic Messages. No SDK lock-in.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature__copy" data-reveal>
+            <p class="eyebrow t-label feature__kicker">Provider surface</p>
+            <h3 class="t-h2">Speak the wires agents already use.</h3>
+            <p class="t-body dim">OpenAI Chat Completions for OpenRouter, Groq, Ollama, Gemini compat, xAI, and more. Native Anthropic for Claude.</p>
+            <ul class="feature__list">
+              <li>Env-first resolution with explicit overrides</li>
+              <li>Catalog export as OpenAI or Anthropic tool schemas</li>
+              <li><code>reaharness agent "…"</code> for a standalone loop</li>
+            </ul>
+          </div>
+          <div class="panel" data-reveal role="img" aria-label="Provider list snippet">
+            <pre>openai       · Chat Completions
+anthropic    · Messages API
+openrouter   · OpenAI-compat
+groq         · OpenAI-compat
+ollama       · local OpenAI-compat
+gemini       · OpenAI-compat
+xai          · OpenAI-compat
+<span class="hi">+ together · deepseek · fireworks</span></pre>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature__copy" data-reveal>
+            <p class="eyebrow t-label feature__kicker">Agent loop</p>
+            <h3 class="t-h2">Model, tools, evidence, repeat.</h3>
+            <p class="t-body dim">The same harness tools MCP exposes. Bounded turns. Structured tool results back into the transcript.</p>
+            <ul class="feature__list">
+              <li>Max-turn stop with a clear reason</li>
+              <li>Workspace session memory under <code>.reaharness/</code></li>
+              <li>Architecture guard keeps layers honest</li>
+            </ul>
+          </div>
+          <div class="panel" data-reveal role="img" aria-label="Agent CLI example">
+            <pre>$ reaharness agent \
+  --provider=anthropic \
+  "Summarize this repo"
+
+<span class="hi">provider=anthropic model=claude-sonnet-4</span>
+turn 0: tools fs_list, fs_read
+turn 1: reply
+
+Evidence in every tool call.
+A clean multi-provider harness…</pre>
+          </div>
+        </div>
+
+        <div class="providers" data-reveal-group aria-label="Provider protocols">
+          <article data-reveal><strong>OpenAI</strong><span>Chat Completions</span></article>
+          <article data-reveal><strong>Anthropic</strong><span>Messages</span></article>
+          <article data-reveal><strong>OpenRouter</strong><span>Gateway</span></article>
+          <article data-reveal><strong>Ollama</strong><span>Local</span></article>
+          <article data-reveal><strong>Groq</strong><span>Fast infer</span></article>
+          <article data-reveal><strong>Gemini</strong><span>Compat API</span></article>
+          <article data-reveal><strong>xAI</strong><span>Grok</span></article>
+          <article data-reveal><strong>Custom</strong><span>Any base URL</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="setup">
+      <div class="container">
+        <div class="chapter-head" data-reveal-group>
+          <h2 class="t-h2" data-reveal>Setup that asks first.</h2>
+          <p class="t-body" data-reveal>Plan the files. Approve. Write with backups. Same spirit as the best agent installers.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__copy" data-reveal>
+            <p class="eyebrow t-label feature__kicker">Hosts</p>
+            <h3 class="t-h2">Register once. Restart your agent.</h3>
+            <p class="t-body dim">JSON, TOML, YAML, OpenCode, Goose, Continue — format-aware writers, not one brittle template.</p>
+            <div class="hosts" style="margin-top:22px">
+              <span class="host-chip">cursor</span>
+              <span class="host-chip">claude</span>
+              <span class="host-chip">opencode</span>
+              <span class="host-chip">goose</span>
+              <span class="host-chip">vscode</span>
+              <span class="host-chip">windsurf</span>
+              <span class="host-chip">codex</span>
+              <span class="host-chip">cline</span>
+              <span class="host-chip">continue</span>
+              <span class="host-chip">gemini</span>
+              <span class="host-chip">grok</span>
+              <span class="host-chip">copilot</span>
+            </div>
+          </div>
+          <div class="panel" data-reveal role="img" aria-label="Setup plan output">
+            <pre>$ reaharness setup --clients=default
+
+Setup plan:
+- Cursor (mcp_json): ~/.cursor/mcp.json
+- Claude Code (mcp_json): ~/.claude.json
+- Codex (codex_toml): ~/.codex/config.toml
+- OpenCode (opencode_json): …
+- VS Code (vscode_mcp): …
+- Skill: .agents/skills/agent-harness/SKILL.md
+
+<span class="hi">Re-run with --yes to apply.</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale container" data-reveal-group>
+      <h2 class="t-display" data-reveal>Install the harness.</h2>
+      <p class="t-body" data-reveal>Clone it, wire MCP, or run the agent loop with the provider you already pay for.</p>
+      <div class="finale__actions" data-reveal>
+        <a class="btn btn--accent" href="https://github.com/arjunkshah12345-hash/reaharness">Open GitHub <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="https://github.com/arjunkshah12345-hash/reaharness#quick-start">Read the docs</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span>reaharness</a>
+          <p>Typed tools. Evidence-bearing results. Provider-agnostic loop.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="#tools">Tools</a>
+          <a href="#providers">Providers</a>
+          <a href="#setup">Setup</a>
+        </div>
+        <div>
+          <h4>Develop</h4>
+          <a href="https://github.com/arjunkshah12345-hash/reaharness">Repository</a>
+          <a href="https://github.com/arjunkshah12345-hash/reaharness/blob/main/AGENTS.md">AGENTS.md</a>
+          <a href="https://github.com/arjunkshah12345-hash/reaharness/blob/main/SECURITY.md">Security</a>
+        </div>
+        <div>
+          <h4>Install</h4>
+          <a href="#install">npm command</a>
+          <a href="https://github.com/arjunkshah12345-hash/reaharness#quick-start">Quick start</a>
+        </div>
+        <div>
+          <h4>License</h4>
+          <a href="https://github.com/arjunkshah12345-hash/reaharness/blob/main/LICENSE">MIT</a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <div><span class="ok">ok</span> · evidence · unknowns</div>
+        <div data-clock="America/Los_Angeles">--:--</div>
+        <div>Built for agents that show their work</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { autoInit } from './assets/motion.js';
+    autoInit();
+
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const sel = btn.getAttribute('data-copy');
+        const el = sel ? document.querySelector(sel) : null;
+        if (!el) return;
+        try {
+          await navigator.clipboard.writeText(el.textContent.trim());
+          const prev = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = prev; }, 1200);
+        } catch {
+          btn.textContent = 'Select & copy';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

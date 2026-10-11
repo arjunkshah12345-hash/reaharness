@@ -10,3 +10,4 @@ coverage/
 test-results/
 .turbo/
 *.tsbuildinfo
+website/audit/
